@@ -1,0 +1,280 @@
+:root {
+    --color-primary: #82856A;
+    --color-secondary: #C2C6AF;
+    
+    --color-primary-hover: #6F725B;
+    --color-secondary-hover: #AEB39B;
+    
+    --color-bg-main:  #F9F9F5;
+    --color-bg-section: #ffece5;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    }
+    .btn-primary {
+    background-color: #5e7d6b;
+    border: 0;
+    border-radius: 50rem;
+    }
+    
+    .btn-primary:hover {
+    background-color: #6F725B;
+    border-color: #6F725B;
+    }
+    
+    .btn-secondary {
+    background-color: #C2C6AF;
+    border-color: #C2C6AF;
+    color: #4A4A3F;
+    }
+    
+    .btn-secondary:hover {
+    background-color: #AEB39B;
+    }
+    
+    .btn-outline-primary:hover {
+    background-color: #82856A;
+    color: #fff;
+    }
+    body {
+    font-family: var(--font-body);
+    background-color: #F9F9F5;
+    color: #5E5E52;
+    }
+    
+    h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: #4A4A3F;
+    }
+    
+    .btn {
+    font-family: var(--font-body);
+    letter-spacing: 0.5px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    .container-fluid {
+        padding: 0 0;
+    }
+
+    .main-menu {
+        background-color: transparent;
+        position: fixed;
+        padding-top: 10px;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+    .main-menu.is-scrolled {
+        background-color: #F9F9F5;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border-bottom: 1px solid #EBE3D3;
+    }
+
+    .hero-section {
+        width: 100%;
+        position: relative;
+    }
+    
+/* Carousel window - rounded-pill vertical lơ lửng */
+.carousel-window {
+    position: absolute;
+    width: 35%;  /* Width 30% */
+    height: 70%;  /* Height 50% */
+    border: 8px solid #fbc4ca;
+    border-radius: 20rem;  /* Rounded-pill (vertical pill shape) */
+    background-color: rgba(255, 255, 255, 0.95);  /* Nền trắng với độ trong suốt */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);  /* Đổ bóng để tạo hiệu ứng lơ lửng */
+    
+    /* Căn giữa và đặt vị trí */
+    top: 55%;
+    right: 10%;  /* Điều chỉnh vị trí ngang - có thể là left, right, hoặc center */
+    transform: translateY(-50%);
+    
+    z-index: 10;  /* Cao hơn carousel items */
+    
+    /* Animation lơ lửng */
+    animation: float-window 3s ease-in-out infinite;
+    
+    /* Padding và overflow cho nội dung bên trong */
+    padding: 20px;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('');  /* Sẽ được cập nhật bằng JavaScript */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.carousel-window img {
+    display: none;  /* Hoặc visibility: hidden */
+}
+/* .window-img trở thành frame */
+.carousel-window .window-img {
+    width: 35%;
+    height: 70%;
+    border: 8px solid #fbc4ca;
+    border-radius: 20rem;
+    background-color: rgba(255, 255, 255, 0.1);  /* Nền trong suốt hơn */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    
+    /* Background image trên frame */
+    background-image: url('');  /* Sẽ được cập nhật bằng JavaScript */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Animation lơ lửng */
+@keyframes float-window {
+    0%, 100% {
+        transform: translateY(-50%) translateY(0px);
+    }
+    50% {
+        transform: translateY(-50%) translateY(-15px);  /* Di chuyển lên xuống */
+    }
+}
+
+/* Style cho các icon bên trong */
+.carousel-window i {
+    position: absolute;
+    font-size: 36px;
+    color: #718374;
+    cursor: pointer;
+    z-index: 11;
+}
+
+/* Style cho button play */
+.carousel-window .btn {
+    position: absolute;
+    bottom: 20px;  /* Góc bottom left */
+    left: 50px;
+    width: 60px;  /* Kích thước tròn */
+    height: 60px;
+    border-radius: 50%;  /* Tròn hoàn toàn */
+    border: none;
+    background: rgba(255, 255, 255, 0.3);  /* Nền trong suốt */
+    backdrop-filter: blur(10px);  /* Hiệu ứng blur */
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon bên trong button */
+.carousel-window .btn i {
+    position: static;  /* Bỏ position absolute */
+    color: #fff;  /* Màu trắng để nổi bật trên nền blur */
+    font-size: 20px;
+    margin-left: 3px;  /* Dịch icon play sang phải một chút để cân đối */
+}
+
+/* Hover effect */
+.carousel-window .btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Active effect */
+.carousel-window .btn:active {
+    transform: scale(0.95);
+}
+
+/* Style cho window-img container */
+.carousel-window img {
+    height: 120%;
+    object-fit: c;
+    object-position: center;
+}
+
+/* Đảm bảo hero-section có position relative */
+.hero-section {
+    width: 100%;
+    height: 100vh;  /* Chiều cao bằng viewport height */
+    min-height: 600px;  /* Chiều cao tối thiểu */
+    max-height: 800px;  /* Chiều cao tối đa (optional) */
+    position: relative;
+    overflow: hidden;  /* Ẩn phần tràn ra ngoài */
+}
+.carousel-indicators {
+    width: 100%;
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+.carousel-item {
+    height: 100%;  /* Chiều cao bằng hero-section */
+    position: relative;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    /* filter: brightness(0.5); */
+    height: 100%;
+    }
+    .carousel-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fbc4ca;
+    opacity: 0.85; /* Điều chỉnh độ đậm của overlay (0-1) */
+    pointer-events: none; /* Cho phép click qua overlay */
+    z-index: 1;
+}
+.hero-section .carousel-inner {
+    height: 100%;
+}
+.carousel-item .carousel-caption {
+    width: 100%;
+    left: 50%;
+    right: auto;
+    top: 55%;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    z-index: 2;
+}
+.caption-content {
+    width: 50%;
+}
+.hero-section .open-caption {
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    padding-left: 120px; /* chừa chỗ cho đường kẻ */
+}
+.hero-section .open-caption::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 108px;        /* độ dài đường kẻ */
+    height: 2px;        /* độ dày */
+    background-color: #fff; /* màu */
+    transform: translateY(-50%);
+}
+.hero-section .main-caption {
+    font-size: 45px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
